@@ -1,3 +1,6 @@
+import 'package:final_design/Activity/PhoneAuthentication.dart';
+import 'package:final_design/AppRoutes/StartActivities.dart';
+import 'package:final_design/StateManagement/StartActivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +21,11 @@ class CircularButtonWithImageText {
         clipBehavior: Clip.antiAliasWithSaveLayer,
         child: InkWell(
           splashColor: Colors.grey,
-          onTap: (){},
+          onTap: (){
+            if (title == "Log in with phone") {
+              StartActivity().start(context,const PhoneAuthentication());
+            }
+          },
           child: Container(
             margin: const EdgeInsets.only(top: 15, bottom: 15),
             alignment: Alignment.center,

@@ -42,7 +42,6 @@ class _AuthenticationActivityState extends State<AuthenticationActivity> {
                   margin: const EdgeInsets.only(top: 25, bottom: 25),
                   child: const Text("Finally. Discipline\nyou can get pay for.", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),),
                 ),
-
                 CircularButtonWithImageText().createImageTextBtn(Icons.facebook_outlined, "Log in with facebook", context),
                 CircularButtonWithImageText().createImageTextBtn(Icons.apple, "Log in with apple", context),
                 CircularButtonWithImageText().createImageTextBtn(Icons.phone, "Log in with phone", context),
