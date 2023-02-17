@@ -1,9 +1,12 @@
 import 'package:final_design/Activity/Common/Constant.dart';
+import 'package:final_design/Resources/Drawable/CircularButtonWithImageText.dart';
 import 'package:final_design/Resources/Margins.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class PhoneAuthentication extends ConsumerStatefulWidget {
   const PhoneAuthentication({Key? key}) : super(key: key);
@@ -14,6 +17,7 @@ class PhoneAuthentication extends ConsumerStatefulWidget {
 }
 
 class _PhoneAuthenticationState extends ConsumerState<PhoneAuthentication> {
+
   @override
   void initState() {
     // TODO: implement initState
@@ -24,6 +28,13 @@ class _PhoneAuthenticationState extends ConsumerState<PhoneAuthentication> {
 
   @override
   Widget build(BuildContext context) {
+
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+    final TextEditingController controller = TextEditingController();
+    String initialCountry = 'CAN';
+    PhoneNumber number = PhoneNumber(isoCode: 'CA');
+
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,7 +45,7 @@ class _PhoneAuthenticationState extends ConsumerState<PhoneAuthentication> {
             child: const LinearProgressIndicator(
               backgroundColor: Colors.grey,
               valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
-              value: progress,
+              value: 0.09,
             ),
           ),
 
@@ -84,8 +95,65 @@ class _PhoneAuthenticationState extends ConsumerState<PhoneAuthentication> {
               ],
             ),
           ),
+
+          Container(
+            margin: const EdgeInsets.only(top: topMargin + 15, left: leftMargin),
+            child: const Text(
+                "Phone Number",
+                textAlign: TextAlign.start,
+                style: TextStyle(fontSize: 18, color: Colors.black)),
+          ),
+
+          Container(
+            margin: const EdgeInsets.only(left: leftMargin, right: rightMargin, top: topMargin),
+            child: Column(
+              children: <Widget> [
+                InternationalPhoneNumberInput(
+                  onInputChanged: (PhoneNumber number) {
+                    if (kDebugMode) {
+                      print(number.phoneNumber);
+                    }
+                  },
+                  onInputValidated: (bool value) {
+                    if (kDebugMode) {
+                      print(value);
+                    }
+                  },
+                  selectorConfig: const SelectorConfig(
+                    selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                  ),
+                  ignoreBlank: false,
+                  autoValidateMode: AutovalidateMode.disabled,
+                  selectorTextStyle: const TextStyle(color: Colors.black),
+                  initialValue: number,
+                  textFieldController: controller,
+                  formatInput: true,
+                  hintText: "Enter Number",
+                  keyboardType:
+                  const TextInputType.numberWithOptions(signed: true, decimal: true),
+                  inputBorder: const OutlineInputBorder(),
+                  onSaved: (PhoneNumber number) {
+                    if (kDebugMode) {
+                      print('On Saved: $number');
+                    }
+                  },
+                ),
+              ],
+            ),
+          ),
+
+          Expanded(child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: 90,
+              margin: const EdgeInsets.only(left: leftMargin, right: rightMargin, bottom: bottomMargin),
+              child: CircularButtonWithImageText().createTextBtn(Colors.black, Colors.white, "Continue", context, "phoneAuth"),
+            )
+          ))
+
         ],
       ),
     );
   }
+
 }
