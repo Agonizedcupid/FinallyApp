@@ -81,7 +81,7 @@ class _AboutGoalActivityState
                 Container(
                   margin: const EdgeInsets.only(top: 5),
                   child: const TextField(
-                    obscureText: true,
+                    obscureText: false,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "0 Kg",
@@ -98,7 +98,7 @@ class _AboutGoalActivityState
                 Container(
                   margin: const EdgeInsets.only(top: 5),
                   child: const TextField(
-                    obscureText: true,
+                    obscureText: false,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "0 cm",

@@ -164,6 +164,7 @@ class _ChooseSpecificDaysState extends ConsumerState<ChooseSpecificDays> {
                 Expanded(
                   flex: 3,
                   child: TextField(
+                    obscureText: false,
                     controller:
                         TextEditingController(text: _counter.toString()),
                     keyboardType: TextInputType.number,

@@ -81,8 +81,9 @@ class _NamingActivityState
                 Container(
                   margin: const EdgeInsets.only(top: 5),
                   child: const TextField(
-                    obscureText: true,
+                    obscureText: false,
                     decoration: InputDecoration(
+
                         border: OutlineInputBorder(),
                         hintText: "Enter your full name",
                         hintStyle: TextStyle(color: Colors.grey)),

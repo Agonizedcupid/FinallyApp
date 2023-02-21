@@ -81,7 +81,7 @@ class _BirthDateActivityState
                 Container(
                   margin: const EdgeInsets.only(top: 5),
                   child: const TextField(
-                    obscureText: true,
+                    obscureText: false,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "MM/DD/YYYY",
