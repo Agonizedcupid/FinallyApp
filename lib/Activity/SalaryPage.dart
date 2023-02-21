@@ -6,16 +6,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../Resources/Drawable/CircularButtonWithImageText.dart';
 import '../Resources/Margins.dart';
 
-class ChooseWeeklyGoalActivity extends ConsumerStatefulWidget {
-  const ChooseWeeklyGoalActivity({Key? key}) : super(key: key);
+class SalaryPage extends ConsumerStatefulWidget {
+  const SalaryPage({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<ChooseWeeklyGoalActivity> createState() =>
-      _ChooseWeeklyGoalActivityState();
+  ConsumerState<SalaryPage> createState() =>
+      _SalaryPageState();
 }
 
-class _ChooseWeeklyGoalActivityState
-    extends ConsumerState<ChooseWeeklyGoalActivity> {
+class _SalaryPageState
+    extends ConsumerState<SalaryPage> {
   @override
   void initState() {
     // TODO: implement initState
@@ -26,7 +26,7 @@ class _ChooseWeeklyGoalActivityState
 
   @override
   Widget build(BuildContext context) {
-
+    double _currentValue = 0.0;
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +68,7 @@ class _ChooseWeeklyGoalActivityState
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                const Text("Choose my weekly goals",
+                const Text("My Average Salary is",
                     style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -76,29 +76,41 @@ class _ChooseWeeklyGoalActivityState
 
                 Container(
                   margin: EdgeInsets.only(top: 20),
-                  child:       const Text("Specific days: Selects number of days and the specific days you want to attend the gym per week.",
+                  child:       const Text("Here is some information why we need your salary information.",
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.grey)),
                 ),
 
                 Container(
-                  margin: EdgeInsets.only(top: 10),
-                  child:       const Text("Non-Specific days: Selects number of days you want to attend the gym per week.",
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey)),
+                  margin: const EdgeInsets.only(top: 5),
+                  child: const TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: '0',
+                        hintStyle: TextStyle(color: Colors.grey)),
+                  ),
                 ),
 
 
-                Container(
-                  margin: const EdgeInsets.only(top: 25),
-                  child: CircularButtonWithImageText().createTextBtn(Colors.white, Colors.black, "Specific days", context, ""),
-                ),
-                Container(
-                  child: CircularButtonWithImageText().createTextBtn(Colors.white, Colors.black, "Non-specific days", context, ""),
-                ),
+
               ],
+            ),
+          ),
+          Container(
+            child:Slider(
+              value: _currentValue,
+              min: 0,
+              max: 100,
+              divisions: 100,
+              activeColor: Colors.black,
+              inactiveColor: Colors.grey,
+              onChanged: (double value) {
+                setState(() {
+                  _currentValue = value;
+                });
+              },
             ),
           ),
           Expanded(child: Align(
@@ -106,7 +118,7 @@ class _ChooseWeeklyGoalActivityState
               child: Container(
                 height: 90,
                 margin: const EdgeInsets.only(left: leftMargin, right: rightMargin, bottom: bottomMargin),
-                child: CircularButtonWithImageText().createTextBtn(Colors.black, Colors.white, "Continue", context, "choose"),
+                child: CircularButtonWithImageText().createTextBtn(Colors.black, Colors.white, "Continue", context, "salary"),
               )
           ))
         ],

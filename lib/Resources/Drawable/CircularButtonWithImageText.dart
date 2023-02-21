@@ -1,15 +1,19 @@
 import 'package:final_design/Activity/AboutGoals.dart';
 import 'package:final_design/Activity/BirthDateActivity.dart';
+import 'package:final_design/Activity/ChooseSpecificDays.dart';
 import 'package:final_design/Activity/ChooseWeeklyGoalActivity.dart';
 import 'package:final_design/Activity/GenderActivity.dart';
 import 'package:final_design/Activity/NamingActivity.dart';
 import 'package:final_design/Activity/PhoneAuthentication.dart';
+import 'package:final_design/Activity/SalaryPage.dart';
 import 'package:final_design/Activity/VerificationCodeActivity.dart';
 import 'package:final_design/Activity/WorkoutTypeActivity.dart';
 import 'package:final_design/AppRoutes/StartActivities.dart';
 import 'package:final_design/StateManagement/StartActivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../Activity/SubscriptionsPage.dart';
 
 class CircularButtonWithImageText {
 
@@ -91,6 +95,15 @@ class CircularButtonWithImageText {
             }
             if (flag == "workoutType") {
               StartActivity().start(context, const ChooseWeeklyGoalActivity());
+            }
+            if (flag == "choose") {
+              StartActivity().start(context, const ChooseSpecificDays());
+            }
+            if (flag == "minMax") {
+              StartActivity().start(context, const SalaryPage());
+            }
+            if (flag == "salary") {
+              StartActivity().start(context, const SubscriptionsPage());
             }
           },
           child: Container(
