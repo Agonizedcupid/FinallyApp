@@ -189,12 +189,12 @@ class _ChooseSpecificDaysState extends ConsumerState<ChooseSpecificDays> {
                   child: Row(
                     children: [
                       IconButton(
-                        onPressed: _incrementCounter,
-                        icon: const Icon(Icons.add),
-                      ),
-                      IconButton(
                         onPressed: _decrementCounter,
                         icon: const Icon(Icons.remove),
+                      ),
+                      IconButton(
+                        onPressed: _incrementCounter,
+                        icon: const Icon(Icons.add),
                       ),
                     ],
                   ),
