@@ -76,7 +76,7 @@ class _VerificationCodeActivityState
                   margin: const EdgeInsets.only(top: 25),
                   child: const Text("Verification Code",
                       textAlign: TextAlign.start,
-                      style: TextStyle(fontSize: 18, color: Colors.grey)),
+                      style: TextStyle(fontSize: 18, color: Colors.grey),),
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 5),
@@ -86,6 +86,7 @@ class _VerificationCodeActivityState
                         border: OutlineInputBorder(),
                         hintText: '000-000',
                         hintStyle: TextStyle(color: Colors.grey)),
+                    keyboardType: TextInputType.number,
                   ),
                 )
               ],

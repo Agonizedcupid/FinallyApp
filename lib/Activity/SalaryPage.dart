@@ -14,19 +14,22 @@ class SalaryPage extends ConsumerStatefulWidget {
       _SalaryPageState();
 }
 
-class _SalaryPageState
-    extends ConsumerState<SalaryPage> {
+class _SalaryPageState extends ConsumerState<SalaryPage> {
+  double _currentValue = 0;
+  final TextEditingController _textFieldController = TextEditingController();
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(statusBarColor: Colors.white));
+    _textFieldController.text = '\$${_currentValue}';
+
   }
 
   @override
   Widget build(BuildContext context) {
-    double _currentValue = 0.0;
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +78,7 @@ class _SalaryPageState
                         color: Colors.black)),
 
                 Container(
-                  margin: EdgeInsets.only(top: 20),
+                  margin: const EdgeInsets.only(top: 20),
                   child:       const Text("Here is some information why we need your salary information.",
                       style: TextStyle(
                           fontSize: 16,
@@ -84,12 +87,19 @@ class _SalaryPageState
 
                 Container(
                   margin: const EdgeInsets.only(top: 5),
-                  child: const TextField(
+                  child: TextField(
+                    controller: _textFieldController,
                     obscureText: false,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(),
-                        hintText: '0',
+                        //labelText: "0",
                         hintStyle: TextStyle(color: Colors.grey)),
+                    keyboardType: TextInputType.number,
+                    onChanged: (value) {
+                      setState(() {
+                        _currentValue = double.tryParse(value.split(' ')[1]) ?? 0.0;
+                      });
+                    },
                   ),
                 ),
 
@@ -101,23 +111,42 @@ class _SalaryPageState
 
           StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
-              return Container(
-                child:Slider(
-                  value: _currentValue,
-                  min: 0,
-                  max: 100,
-                  divisions: 100,
-                  activeColor: Colors.black,
-                  inactiveColor: Colors.grey,
-                  onChanged: (double value) {
-                    setState(() {
-                      _currentValue = value;
-                    });
-                  },
-                ),
+              return Slider(
+                value: _currentValue,
+                min: 0,
+                max: 100000,
+                divisions: 10,
+                activeColor: Colors.black,
+                inactiveColor: Colors.grey,
+                onChanged: (double value) {
+                  setState(() {
+                    _currentValue = value;
+                    _textFieldController.text = '\$${_currentValue}';
+                  });
+
+                },
               );
             },
           ),
+
+          Row(
+            children: <Widget>[
+              Expanded(
+                  child: Container(
+                    margin: const EdgeInsets.only(left: 25),
+                    child: const Text("\$0") ,
+                  ) ,
+              ),
+              Expanded(
+                child: Container(
+                  alignment: Alignment.topRight,
+                  margin: const EdgeInsets.only(right: 25),
+                  child: const Text("\$100K+") ,
+                ) ,
+              ),
+            ],
+          ),
+
           Expanded(child: Align(
               alignment: Alignment.bottomCenter,
               child: Container(

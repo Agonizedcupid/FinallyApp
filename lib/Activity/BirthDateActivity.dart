@@ -31,9 +31,10 @@ class _BirthDateActivityState extends ConsumerState<BirthDateActivity> {
     }
   }
 
+
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(statusBarColor: Colors.white));

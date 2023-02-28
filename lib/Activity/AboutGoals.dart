@@ -86,6 +86,7 @@ class _AboutGoalActivityState
                         border: OutlineInputBorder(),
                         hintText: "0 Kg",
                         hintStyle: TextStyle(color: Colors.grey)),
+                    keyboardType: TextInputType.number,
                   ),
                 ),
 
@@ -103,6 +104,7 @@ class _AboutGoalActivityState
                         border: OutlineInputBorder(),
                         hintText: "0 cm",
                         hintStyle: TextStyle(color: Colors.grey)),
+                    keyboardType: TextInputType.number,
                   ),
                 )
               ],
