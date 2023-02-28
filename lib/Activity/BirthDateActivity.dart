@@ -10,12 +10,27 @@ class BirthDateActivity extends ConsumerStatefulWidget {
   const BirthDateActivity({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<BirthDateActivity> createState() =>
-      _BirthDateActivityState();
+  ConsumerState<BirthDateActivity> createState() => _BirthDateActivityState();
 }
 
-class _BirthDateActivityState
-    extends ConsumerState<BirthDateActivity> {
+class _BirthDateActivityState extends ConsumerState<BirthDateActivity> {
+
+  DateTime selectedDate = DateTime.now();
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -27,6 +42,7 @@ class _BirthDateActivityState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -78,27 +94,58 @@ class _BirthDateActivityState
                       textAlign: TextAlign.start,
                       style: TextStyle(fontSize: 18, color: Colors.grey)),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 5),
-                  child: const TextField(
-                    obscureText: false,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "MM/DD/YYYY",
-                        hintStyle: TextStyle(color: Colors.grey)),
-                  ),
-                )
+                // Container(
+                //   margin: const EdgeInsets.only(top: 5),
+                //   child:Text(
+                //     decoration: InputDecoration(
+                //         border: OutlineInputBorder(),
+                //         hintText: "MM/DD/YYYY",
+                //         hintStyle: TextStyle(color: Colors.grey)),
+                //   ),
+                // )
+
+                GestureDetector(
+                    onTap: () {
+                      _selectDate(context);
+                    },
+                    child: Expanded(
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: MediaQuery.of(context).size.width,
+                        margin: const EdgeInsets.only(top: 15),
+                        padding: const EdgeInsets.all(20.0),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20.0),
+                            border: Border.all(color: Colors.grey, width: 2)),
+                        child: Text(
+                          //'MM/DD/YYYY',
+                          '${selectedDate.month}/${selectedDate.day}/${selectedDate.year}',
+                          style: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             ),
           ),
-          Expanded(child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                height: 90,
-                margin: const EdgeInsets.only(left: leftMargin, right: rightMargin, bottom: bottomMargin),
-                child: CircularButtonWithImageText().createTextBtn(Colors.black, Colors.white, "Continue", context, "birth"),
-              )
-          ))
+          Expanded(
+              child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    height: 90,
+                    margin: const EdgeInsets.only(
+                        left: leftMargin,
+                        right: rightMargin,
+                        bottom: bottomMargin),
+                    child: CircularButtonWithImageText().createTextBtn(
+                        Colors.black,
+                        Colors.white,
+                        "Continue",
+                        context,
+                        "birth"),
+                  )))
         ],
       ),
     );
