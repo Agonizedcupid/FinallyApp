@@ -32,16 +32,8 @@ class _SkipSubscriptionPageState extends ConsumerState<SkipSubscription> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Container(
-            margin: const EdgeInsets.only(top: 45),
-            child: const LinearProgressIndicator(
-              backgroundColor: Colors.grey,
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
-              value: (1),
-            ),
-          ),
-          Container(
             alignment: Alignment.topRight,
-            margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.only(top: 50, right: 15, left: 15),
             // child: const Text("Skip",
             //     style: TextStyle(
             //         fontSize: 18,

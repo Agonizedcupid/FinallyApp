@@ -1,7 +1,10 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:final_design/Activity/SkipSubscription.dart';
 import 'package:final_design/Resources/IconsConstant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../StateManagement/StartActivity.dart';
 
 class HomeFragment extends StatefulWidget {
   const HomeFragment({Key? key}) : super(key: key);
@@ -29,24 +32,30 @@ class _HomeFragmentState extends State<HomeFragment> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
-                  Text(
+                children:  <Widget>[
+                  const Text(
                     "Set Up Payment",
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Colors.black),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text(
-                    "Subscribe Now",
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue),
+                  GestureDetector(
+                    onTap: () {
+                      StartActivity().start(context, const SkipSubscription());
+                    },
+                    child: const Text(
+                      "Subscribe Now",
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue),
+                    ),
                   )
+
                 ],
               ),
               const Icon(
