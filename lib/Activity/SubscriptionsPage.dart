@@ -1,3 +1,4 @@
+import 'package:final_design/Activity/HomeNavBar.dart';
 import 'package:final_design/Activity/SkipSubscription.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,7 @@ class _SubscriptionsPageState extends ConsumerState<SubscriptionsPage> {
             //StartActivity().start(context, const NamingActivity());
             child: GestureDetector(
               onTap: () {
-                StartActivity().start(context, const SkipSubscription());
+                StartActivity().start(context, const HomeNavBar());
               },
               child: const Text ("Skip",
                   style: TextStyle(

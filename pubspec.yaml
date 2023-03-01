@@ -44,6 +44,10 @@ dependencies:
 
   routemaster: ^0.9.5
 
+  google_nav_bar: ^5.0.6
+
+  circular_countdown_timer: ^0.2.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -80,6 +84,12 @@ flutter:
     - lib/Resources/Icons/splash_dummy_image.png
     - lib/Resources/Icons/logo.png
     - lib/Resources/Icons/splash_screen_image.png
+    - lib/Resources/Icons/account_icon.png
+    - lib/Resources/Icons/bag_icon.png
+    - lib/Resources/Icons/calender.png
+    - lib/Resources/Icons/home_icon.png
+    - lib/Resources/Icons/round_question_mark.png
+    - lib/Resources/Icons/logo_text.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
