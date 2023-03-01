@@ -4,6 +4,7 @@ import 'package:final_design/Activity/ChooseSpecificDays.dart';
 import 'package:final_design/Activity/ChooseWeeklyGoalActivity.dart';
 import 'package:final_design/Activity/GenderActivity.dart';
 import 'package:final_design/Activity/NamingActivity.dart';
+import 'package:final_design/Activity/PaidHomeNavBar.dart';
 import 'package:final_design/Activity/PhoneAuthentication.dart';
 import 'package:final_design/Activity/SalaryPage.dart';
 import 'package:final_design/Activity/VerificationCodeActivity.dart';
@@ -104,6 +105,9 @@ class CircularButtonWithImageText {
             }
             if (flag == "salary") {
               StartActivity().start(context, const SubscriptionsPage());
+            }
+            if (flag == "subscribe") {
+              StartActivity().start(context, const PaidHomeNavBar());
             }
           },
           child: Container(

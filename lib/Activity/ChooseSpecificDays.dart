@@ -133,7 +133,7 @@ class _ChooseSpecificDaysState extends ConsumerState<ChooseSpecificDays> {
                     });
                   },
                   child: Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     //color: _selected[index] ?  : null,
                     //child: Text(days[index]),
                     child: SingleRowForList()
