@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../Resources/Drawable/CreateSingleRow.dart';
+import '../../Resources/Drawable/CustomDialog.dart';
 import '../../StateManagement/StartActivity.dart';
 
 class PaidHomeFragment extends StatefulWidget {
@@ -28,8 +29,21 @@ class _PaidHomeFragmentState extends State<PaidHomeFragment> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Image.asset(
-                roundQuestionMarkIcon,
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return const HelpDialog(
+                        title: 'My Custom Dialog',
+                        description: 'This is a description of my custom dialog.',
+                      );
+                    },
+                  );
+                },
+                child: Image.asset(
+                  roundQuestionMarkIcon,
+                ),
               ),
               Image.asset(textLogo),
               Image.asset(

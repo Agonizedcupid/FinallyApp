@@ -90,6 +90,11 @@ flutter:
     - lib/Resources/Icons/home_icon.png
     - lib/Resources/Icons/round_question_mark.png
     - lib/Resources/Icons/logo_text.png
+    - lib/Resources/Icons/hamburger.png
+    - lib/Resources/Icons/blue_tick_icon.png
+    - lib/Resources/Icons/flash_icon.png
+    - lib/Resources/Icons/flash_wave.png
+    - lib/Resources/Icons/calender_white.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
