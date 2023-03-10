@@ -128,4 +128,40 @@ class CircularButtonWithImageText {
       ),
     );
   }
+
+  Widget createCircularTextBtn(Color backgroundColor, Color textColor, String title, BuildContext context, String flag) {
+    return Container(
+      // decoration: BoxDecoration(
+      //   color: Colors.transparent,
+      //   border: Border.all(color: Colors.black, width: 3),
+      //   borderRadius: BorderRadius.circular(35),
+      // ),
+      child:  Material(
+        color: backgroundColor,
+        elevation: 8.0,
+        borderRadius: BorderRadius.circular(35),
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        child: InkWell(
+          splashColor: Colors.grey,
+          onTap: (){
+          },
+          child: Container(
+            margin: const EdgeInsets.only(top: 15, bottom: 15),
+            alignment: Alignment.center,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  margin: const EdgeInsets.only(left: 10),
+                  child:  Text( title, style:  TextStyle(fontSize: 18, color: textColor)),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
 }

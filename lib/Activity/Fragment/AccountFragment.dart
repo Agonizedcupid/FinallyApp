@@ -1,5 +1,7 @@
+import 'package:final_design/Activity/EditProfile.dart';
 import 'package:final_design/Resources/Drawable/CreateCircularView.dart';
 import 'package:final_design/Resources/Margins.dart';
+import 'package:final_design/StateManagement/StartActivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +26,13 @@ class _AccountFragmentState extends State<AccountFragment> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Expanded(flex: 1, child: Image.asset(textLogo)),
-              Image.asset(hamburgerIcon),
+              GestureDetector(
+                onTap: () {
+                  StartActivity().start(context, const EditProfile());
+                },
+                child: Image.asset(hamburgerIcon),
+              )
+              ,
             ],
           ),
         ),
