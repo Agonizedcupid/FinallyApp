@@ -96,7 +96,120 @@ class _EditProfileState extends State<EditProfile> {
                       color: Colors.grey,
                       thickness: 1.0,
                     ),
-                  )
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.edit),
+                      Container(
+                        margin: const EdgeInsets.only(left: 15),
+                        child: const Text("Edit Profile", style: TextStyle(color: Colors.black, fontSize: 18),)
+                      ),
+                      const Spacer(),
+                      const Icon(Icons.arrow_forward_ios_outlined)
+                    ],
+                  ),
+                  const SizedBox(height: 30,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.sunny),
+                      Container(
+                          margin: const EdgeInsets.only(left: 15),
+                          child: const Text("Display", style: TextStyle(color: Colors.black, fontSize: 18),)
+                      ),
+                      const Spacer(),
+                      const Icon(Icons.arrow_forward_ios_outlined)
+                    ],
+                  ),
+
+                  const SizedBox(height: 30,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.people),
+                      Container(
+                          margin: const EdgeInsets.only(left: 15),
+                          child: const Text("Invite Friends", style: TextStyle(color: Colors.black, fontSize: 18),)
+                      ),
+                      const Spacer(),
+                      const Icon(Icons.arrow_forward_ios_outlined)
+                    ],
+                  ),
+
+                  const SizedBox(height: 30,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.help),
+                      Container(
+                          margin: const EdgeInsets.only(left: 15),
+                          child: const Text("Help", style: TextStyle(color: Colors.black, fontSize: 18),)
+                      ),
+                      const Spacer(),
+                      const Icon(Icons.arrow_forward_ios_outlined)
+                    ],
+                  ),
+
+                  const SizedBox(height: 30,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.menu),
+                      Container(
+                          margin: const EdgeInsets.only(left: 15),
+                          child: const Text("Terms & Conditions", style: TextStyle(color: Colors.black, fontSize: 18),)
+                      ),
+                      const Spacer(),
+                      const Icon(Icons.arrow_forward_ios_outlined)
+                    ],
+                  ),
+
+                  const SizedBox(height: 30,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.menu),
+                      Container(
+                          margin: const EdgeInsets.only(left: 15),
+                          child: const Text("Privacy Policy", style: TextStyle(color: Colors.black, fontSize: 18),)
+                      ),
+                      const Spacer(),
+                      const Icon(Icons.arrow_forward_ios_outlined)
+                    ],
+                  ),
+
+                  const SizedBox(height: 60,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.logout),
+                      Container(
+                          margin: const EdgeInsets.only(left: 15),
+                          child: const Text("Logout", style: TextStyle(color: Colors.black, fontSize: 18),)
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 30,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.delete_forever),
+                      Container(
+                          margin: const EdgeInsets.only(left: 15),
+                          child: const Text("Delete Account", style: TextStyle(color: Colors.grey, fontSize: 18),)
+                      ),
+                    ],
+                  ),
                 ],
               )
           ),
