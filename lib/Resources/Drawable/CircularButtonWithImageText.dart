@@ -164,4 +164,35 @@ class CircularButtonWithImageText {
     );
   }
 
+  Widget createGreyImageTextBtn(IconData icon, String title, BuildContext context) {
+    return Material(
+      color: Colors.grey,
+      elevation: 8.0,
+      borderRadius: BorderRadius.circular(35),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      child: InkWell(
+        splashColor: Colors.white,
+        onTap: (){
+        },
+        child: Container(
+          margin: const EdgeInsets.only(top: 10, bottom: 10, left: 7, right: 7),
+          alignment: Alignment.center,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                icon,
+              ),
+              Container(
+                margin: const EdgeInsets.only(left: 10),
+                child:  Text( title, style: const TextStyle(fontSize: 18),),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
 }

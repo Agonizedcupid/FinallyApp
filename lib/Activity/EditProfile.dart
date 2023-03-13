@@ -1,3 +1,4 @@
+import 'package:final_design/Activity/StartEditProfile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../Resources/Drawable/CircularButtonWithImageText.dart';
@@ -97,18 +98,23 @@ class _EditProfileState extends State<EditProfile> {
                       thickness: 1.0,
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Icon(Icons.edit),
-                      Container(
-                        margin: const EdgeInsets.only(left: 15),
-                        child: const Text("Edit Profile", style: TextStyle(color: Colors.black, fontSize: 18),)
-                      ),
-                      const Spacer(),
-                      const Icon(Icons.arrow_forward_ios_outlined)
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      StartActivity().start(context, const StartEditProfile());
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.edit),
+                        Container(
+                            margin: const EdgeInsets.only(left: 15),
+                            child: const Text("Edit Profile", style: TextStyle(color: Colors.black, fontSize: 18),)
+                        ),
+                        const Spacer(),
+                        const Icon(Icons.arrow_forward_ios_outlined)
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 30,),
                   Row(
